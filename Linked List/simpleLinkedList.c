@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 typedef struct estru {
-    int value;
+    int data;
     struct estru *next;
 } node;
 
@@ -15,13 +15,13 @@ void createList() {
 
 void viewList() {
     for(aux=head; aux != NULL; aux=aux->next) { 
-        printf("Valores da Lista: %d\n", aux->value);
+        printf("Valores da Lista: %d\n", aux->data);
     }
 }
 
 void insertElements(int i) {
     new = malloc(sizeof(node));
-    new->value = i;
+    new->data = i;
     new->next = NULL;
 
     if(head == NULL) {
@@ -49,7 +49,7 @@ void deleteLastElement() {
 
 void deleteSelectElement(int elementValue) {
     printf("\nDeletando o elemento selecionado - %d:\n", elementValue);
-    for(aux=head; aux->next->value!= elementValue; aux=aux->next);
+    for(aux=head; aux->next->data!= elementValue; aux=aux->next);
     
     if(aux==NULL) printf("\nElemento nao encontrada");
     else {
