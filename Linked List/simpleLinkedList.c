@@ -62,7 +62,7 @@ void deleteSelectElement(int elementValue) {
 int main() {
     createList();
     // Altere o tamanho aqui 
-    for(int i=0; i < 10; i++) {
+    for(int i=0; i < 50; i++) {
         insertElements(i);
     }
     viewList();
@@ -70,6 +70,6 @@ int main() {
     viewList();
     deleteLastElement();
     viewList();
-    deleteSelectElement(3);
+    deleteSelectElement(18);
     viewList();
 }
