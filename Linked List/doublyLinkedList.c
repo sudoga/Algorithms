@@ -7,7 +7,7 @@ typedef struct estru {
   struct estru* prev;
 } Node;
 
-Node *head, *aux, *new, *last;
+Node *head, *aux, *new;
 
 
 void createList() {
