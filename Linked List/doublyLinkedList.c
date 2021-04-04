@@ -59,6 +59,16 @@ void insertElementStart(int elementValue) {
   head = new;
 }
 
+
+void deleteSelectElement(int selectedElement) {
+  printf("Deletando o elemento selecionado - %d\n", selectedElement);
+  for(aux=head; aux->next->data != selectedElement; aux=aux->next);
+  Node *nodeToFree = aux->next;
+  aux->next = aux->next->next;
+  nodeToFree->next->prev = aux;
+  free(nodeToFree);
+}
+
 void printReverse() {
   printf("\n[Invertendo os valores da lista]\n");
   for(aux=head; aux->next != NULL; aux = aux->next);
@@ -77,6 +87,8 @@ int main() {
   insertElementEnd(11);
   viewList();
   insertElementStart(9);
+  viewList();
+  deleteSelectElement(4);
   viewList();
   printReverse();
 }
