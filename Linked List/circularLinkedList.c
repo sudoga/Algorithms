@@ -45,7 +45,7 @@ void deleteFirstElement() {
 }
 
 void deleteLastElement() {
-    printf("\nDeletando o ultimo elemento:\n");
+    printf("\nDeletando o ultimo elemento: \n");
     for(aux=head;aux->next->next!=head;aux=aux->next);
 
     aux->next = head;
