@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
 
 typedef struct estru {
   struct estru* next;
@@ -49,8 +50,30 @@ void deleteLastElement() {
     for(aux=head;aux->next->next!=head;aux=aux->next);
 
     aux->next = head;
-    
 }
+
+void deleteElementByIndex(int indexNumber) {
+  printf("\nDeletando elemento da posiçao [%d]\n", indexNumber);
+  
+  int counter = 1;
+  int listLenght;
+  aux=head;
+
+  for(aux=head;aux->next!=head;aux=aux->next) listLenght++;
+
+  if(indexNumber > listLenght) {
+    printf("\nA posicao [%d] nao existe! Nenhum elemento foi apagado.\n", indexNumber);
+  } else {
+    while (counter < indexNumber) {
+     counter++;
+     aux=aux->next;
+    }
+  Node *nodeToFree = aux->next;
+  aux->next = aux->next->next;
+  free(nodeToFree);
+  }
+}
+
 
 int main() {
   createList();
@@ -61,5 +84,7 @@ int main() {
   deleteFirstElement();
   viewList();
   deleteLastElement();
+  viewList();
+  deleteElementByIndex(3);
   viewList();
 }
