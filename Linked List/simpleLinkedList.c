@@ -60,10 +60,24 @@ void deleteSelectElement(int elementValue) {
     }
 }
 
+static void reverseList() {
+    printf("\nInvertendo a lista:\n");
+    node *next = NULL;
+    node *prev = NULL;
+    aux = head;
+    while(aux!=NULL) {
+        next = aux->next;
+        aux->next = prev;
+        prev = aux;
+        aux = next;
+    }
+    head=prev;
+}
+
 int main() {
     createList();
     // Altere o tamanho aqui 
-    for(int i=0; i < 50; i++) {
+    for(int i=0; i < 10; i++) {
         insertElements(i);
     }
     viewList();
@@ -71,6 +85,8 @@ int main() {
     viewList();
     deleteLastElement();
     viewList();
-    deleteSelectElement(18);
+    deleteSelectElement(2);
+    viewList();
+    reverseList();
     viewList();
 }
