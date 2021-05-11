@@ -5,9 +5,9 @@ typedef struct estru {
   struct estru* next;
   int data;
   struct estru* prev;
-} Node;
+} node;
 
-Node *head, *aux, *new;
+node *head;
 
 
 void createList() {
@@ -16,13 +16,16 @@ void createList() {
 }
 
 void viewList() {
+  node * aux;
   for(aux = head; aux != NULL; aux = aux->next) {
     printf("Valores da Lista: %d\n", aux->data);
   }
 }
 
 void insertElements(int i) {
-    new = malloc(sizeof(Node));
+	node * new;
+	node * aux;
+    new = malloc(sizeof(node));
     new->data = i;
     new->next = NULL;
     new->prev = NULL;
@@ -39,8 +42,10 @@ void insertElements(int i) {
 }
 
 void insertElementEnd(int elementValue) {
+  node * aux;
+  node * new;
   for(aux = head; aux->next != NULL; aux = aux->next);
-    new = malloc(sizeof(Node));
+    new = malloc(sizeof(node));
     new->data = elementValue;
     aux->next = new;
     new->next = NULL;
@@ -50,8 +55,10 @@ void insertElementEnd(int elementValue) {
 }
 
 void insertElementStart(int elementValue) {
+  node * new;
+  node * aux;
   printf("\n[Inserindo o elemento %d no começo da lista.]\n", elementValue);
-  new = malloc(sizeof(Node));
+  new = malloc(sizeof(node));
   new->data = elementValue;
   head->prev = new;
   new->prev = NULL;
@@ -61,15 +68,17 @@ void insertElementStart(int elementValue) {
 
 
 void deleteSelectElement(int selectedElement) {
+  node * aux;
   printf("Deletando o elemento selecionado - %d\n", selectedElement);
   for(aux=head; aux->next->data != selectedElement; aux=aux->next);
-  Node *nodeToFree = aux->next;
+  node *nodeToFree = aux->next;
   aux->next = aux->next->next;
   nodeToFree->next->prev = aux;
   free(nodeToFree);
 }
 
 void printReverse() {
+  node * aux;
   printf("\n[Invertendo os valores da lista]\n");
   for(aux=head; aux->next != NULL; aux = aux->next);
   while(aux != NULL) {
