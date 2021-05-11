@@ -5,9 +5,9 @@
 typedef struct estru {
   struct estru* next;
   int data;
-} Node;
+} node;
 
-Node *head, *new, *aux;
+node *head;
 
 void createList() {
   head = NULL;
@@ -15,6 +15,7 @@ void createList() {
 }
 
 void viewList() {
+  node * aux;
   for(aux=head; aux->next!=head; aux=aux->next) { 
     printf("Valores da Lista: %d\n", aux->data);
   }
@@ -23,7 +24,9 @@ void viewList() {
 }
 
 void insertElements(int i) {
-  new = malloc(sizeof(Node));
+  node * new;
+  node * aux;
+  new = malloc(sizeof(node));
   new->data = i; 
 
   if(head == NULL) {
@@ -37,6 +40,7 @@ void insertElements(int i) {
 }
 
 void deleteFirstElement() {
+  node * aux;
   printf("\nDeletando primeiro elemento:\n");
   aux = head;
   head = aux->next;
@@ -46,6 +50,7 @@ void deleteFirstElement() {
 }
 
 void deleteLastElement() {
+	node * aux;
     printf("\nDeletando o ultimo elemento: \n");
     for(aux=head;aux->next->next!=head;aux=aux->next);
 
@@ -53,6 +58,7 @@ void deleteLastElement() {
 }
 
 void deleteElementByIndex(int indexNumber) {
+  node * aux;
   printf("\nDeletando elemento da posiçao [%d]\n", indexNumber);
   
   int counter = 1;
@@ -68,7 +74,7 @@ void deleteElementByIndex(int indexNumber) {
      counter++;
      aux=aux->next;
     }
-  Node *nodeToFree = aux->next;
+  node *nodeToFree = aux->next;
   aux->next = aux->next->next;
   free(nodeToFree);
   }
