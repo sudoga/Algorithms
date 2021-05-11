@@ -6,7 +6,7 @@ typedef struct estru {
     struct estru *next;
 } node;
 
-node *head, *aux, *new;
+node * head;
 
 void createList() {
     head = NULL;
@@ -14,13 +14,16 @@ void createList() {
 }
 
 void viewList() {
+	node * aux;
     for(aux=head; aux != NULL; aux=aux->next) { 
         printf("Valores da Lista: %d\n", aux->data);
     }
 }
 
 void insertElements(int i) {
-    new = malloc(sizeof(node));
+    node * new;
+	node * aux;
+	new = malloc(sizeof(node));
     new->data = i;
     new->next = NULL;
 
@@ -33,6 +36,7 @@ void insertElements(int i) {
 }
 
 void deleteFirstElement() {
+	node * aux;
     printf("\nDeletando primeiro elemento:\n");
     aux = head->next;
     free(head);
@@ -40,7 +44,8 @@ void deleteFirstElement() {
 }
 
 void deleteLastElement() {
-    printf("\nDeletando o ultimo elemento:\n");
+   	node * aux; 
+	printf("\nDeletando o ultimo elemento:\n");
     for(aux=head; aux->next->next != NULL; aux=aux->next);
 
 
@@ -49,7 +54,8 @@ void deleteLastElement() {
 }
 
 void deleteSelectElement(int elementValue) {
-    printf("\nDeletando o elemento selecionado - %d:\n", elementValue);
+	node * aux;
+	printf("\nDeletando o elemento selecionado - %d:\n", elementValue);
     for(aux=head; aux->next->data!= elementValue; aux=aux->next);
     
     if(aux==NULL) printf("\nElemento nao encontrada");
@@ -61,7 +67,8 @@ void deleteSelectElement(int elementValue) {
 }
 
 static void reverseList() {
-    printf("\nInvertendo a lista:\n");
+	node * aux;
+	printf("\nInvertendo a lista:\n");
     node *next = NULL;
     node *prev = NULL;
     aux = head;
