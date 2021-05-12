@@ -7,13 +7,15 @@ typedef struct estru {
   struct estru* prev;
 } node;
 
-node *new, *aux, *head, *tail;
+node *head, *tail;
 
 void createList() {
-  if (head == NULL) head = new;
+
+  head = NULL;
 }
 
 void viewList() {
+  node * aux;
   for(aux=head; aux->next!=head;aux=aux->next) {
     printf("Valores da lista: %d\n",aux->data);
   }
@@ -21,6 +23,8 @@ void viewList() {
 }
 
 void insertElements(int i) {
+  node * new;
+  node * aux;
   new = malloc(sizeof(node));
   new->data=i;
 
@@ -39,6 +43,8 @@ void insertElements(int i) {
 }
 
 void insertFirst(int elementValue) {
+  node * new;
+  node * aux;
   printf("\nAdicionando o elemento [%d] no comeco da lista\n", elementValue);
   new = malloc(sizeof(node));
   new->data=elementValue;
@@ -50,6 +56,8 @@ void insertFirst(int elementValue) {
 }
 
 void insertEnd(int elementValue) {
+  node * new;
+  node * aux;
   printf("\nAdicionando o elemento [%d] no final da lista\n", elementValue);
   new = malloc(sizeof(node));
   new->data=elementValue;
@@ -61,6 +69,7 @@ void insertEnd(int elementValue) {
 }
 
 void deleteFirst() {
+  node * aux;
   printf("\nDeletando o primeiro elemento\n");
   aux=head->next;
   free(head);
@@ -70,6 +79,7 @@ void deleteFirst() {
 }
 
 void deleteLast() {
+  node * aux;
   printf("\nDeletando o ultimo elemento\n");
   aux=tail->prev;
   free(tail);
@@ -79,6 +89,7 @@ void deleteLast() {
 }
 
 void deleteSelected(int selectedElement) {
+  node * aux;
   printf("\nDeletando o elemento com valor [%d]\n", selectedElement);
   for(aux=head; aux->next->data!=selectedElement; aux=aux->next);
   
