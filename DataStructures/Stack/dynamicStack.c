@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#define MAGENTA "\x1B[35m"
+#define BLUE "\x1B[34m"
+#define WHITE "\x1B[37m"
+
 typedef struct estru
 {
     int data;
@@ -52,7 +56,10 @@ void display()
     temp = top;
     while (temp != NULL)
     {
-        printf("\n%d", temp->data);
+        printf("\n");
+        printf("%s+---+\n", MAGENTA);
+        printf("%s| %s%d %s|\n",MAGENTA, BLUE, temp->data, MAGENTA);
+        printf("%s+---+%s", MAGENTA, WHITE);
         temp = temp->next;
     }
 }
