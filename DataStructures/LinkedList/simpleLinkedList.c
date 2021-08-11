@@ -14,16 +14,16 @@ void createList() {
 }
 
 void viewList() {
-	node * aux;
+	  node * aux;
     for(aux=head; aux != NULL; aux=aux->next) { 
-        printf("Valores da Lista: %d\n", aux->data);
+        printf("%d\n", aux->data);
     }
 }
 
 void insertElements(int i) {
     node * new;
-	node * aux;
-	new = malloc(sizeof(node));
+	  node * aux;
+	  new = malloc(sizeof(node));
     new->data = i;
     new->next = NULL;
 
@@ -36,7 +36,7 @@ void insertElements(int i) {
 }
 
 void deleteFirstElement() {
-	node * aux;
+    node * aux;
     printf("\nDeletando primeiro elemento:\n");
     aux = head->next;
     free(head);
@@ -45,7 +45,7 @@ void deleteFirstElement() {
 
 void deleteLastElement() {
    	node * aux; 
-	printf("\nDeletando o ultimo elemento:\n");
+	  printf("\nDeletando o ultimo elemento:\n");
     for(aux=head; aux->next->next != NULL; aux=aux->next);
 
 
@@ -54,8 +54,8 @@ void deleteLastElement() {
 }
 
 void deleteSelectElement(int elementValue) {
-	node * aux;
-	printf("\nDeletando o elemento selecionado - %d:\n", elementValue);
+	  node * aux;
+	  printf("\nDeletando o elemento selecionado - %d:\n", elementValue);
     for(aux=head; aux->next->data!= elementValue; aux=aux->next);
     
     if(aux==NULL) printf("\nElemento nao encontrada");
@@ -67,8 +67,8 @@ void deleteSelectElement(int elementValue) {
 }
 
 static void reverseList() {
-	node * aux;
-	printf("\nInvertendo a lista:\n");
+	  node * aux;
+	  printf("\nInvertendo a lista:\n");
     node *next = NULL;
     node *prev = NULL;
     aux = head;

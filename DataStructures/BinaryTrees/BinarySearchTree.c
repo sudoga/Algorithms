@@ -64,7 +64,7 @@ void PostOrder(struct Node * root) {
 
   PostOrder(root->left);
   PostOrder(root->right);
-  printf("%d",root->data);
+  printf("%d ",root->data);
 }
 
 struct Node * FindMinimum(struct Node * root) {
@@ -81,7 +81,7 @@ void LevelOrder(struct Node * root) {
 
   while(!CheckIsEmpty()) {
     struct Node * current = pfront();
-    printf("%d", current->data);
+    printf("%d ", current->data);
     if(current->left != NULL)
       Enqueue(current->left);
     if(current->right != NULL)
@@ -128,14 +128,14 @@ void InOrder(struct Node * root) {
   if(root==NULL) return;
 
   InOrder(root->left);
-  printf("%d", root->data);
+  printf("%d ", root->data);
   InOrder(root->right);
 }
 
 void PreOrder(struct Node * root) {
   if (root==NULL) return;
 
-  printf("%d", root->data);
+  printf("%d ", root->data);
   PreOrder(root->left);
   PreOrder(root->right);
 }
