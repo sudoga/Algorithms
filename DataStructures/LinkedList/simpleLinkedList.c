@@ -22,8 +22,8 @@ void viewList() {
 
 void insertElements(int i) {
     node * new;
-	  node * aux;
-	  new = malloc(sizeof(node));
+    node * aux;
+    new = malloc(sizeof(node));
     new->data = i;
     new->next = NULL;
 
@@ -45,7 +45,7 @@ void deleteFirstElement() {
 
 void deleteLastElement() {
    	node * aux; 
-	  printf("\nDeletando o ultimo elemento:\n");
+    printf("\nDeletando o ultimo elemento:\n");
     for(aux=head; aux->next->next != NULL; aux=aux->next);
 
 
@@ -67,8 +67,8 @@ void deleteSelectElement(int elementValue) {
 }
 
 static void reverseList() {
-	  node * aux;
-	  printf("\nInvertendo a lista:\n");
+    node * aux;
+    printf("\nInvertendo a lista:\n");
     node *next = NULL;
     node *prev = NULL;
     aux = head;
